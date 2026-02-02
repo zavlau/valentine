@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentines?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffebee;
+            color: #d32f2f;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        img {
+            max-width: 400px;
+            margin: 20px 0;
+            border: 5px solid #f48fb1;
+            border-radius: 10px;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: font-size 0.3s;
+        }
+        #yes {
+            background-color: #4caf50;
+            color: white;
+        }
+        #no {
+            background-color: #f44336;
+            color: white;
+        }
+        #nextLink {
+            display: none;
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+        #nextLink a {
+            color: #d32f2f;
+            text-decoration: none;
+            border: 2px solid #d32f2f;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        #nextLink a:hover {
+            background-color: #d32f2f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine?</h1>
+    <img src="special.jpg" alt="A special picture"> 
+    
+    <button id="yes" onclick="yesClicked()">Yes</button>
+    <button id="no" onclick="noClicked()">No</button>
+    
+    <div id="nextLink">
+        <a href="https://www.icloud.com/invites/09aN35BhL3NXhgawmzo1b-eKQ"> SHE SAID YESSSSSSSSSSSSS!</a> 
+    </div>
+
+    <script>
+        let noCount = 0;
+
+        function noClicked() {
+            noCount++;
+            // Make Yes button bigger each time
+            document.getElementById('yes').style.fontSize = (1.5 + noCount * 0.5) + 'em';
+            
+            // Change No button text to add more "very "
+            let veryText = 'very '.repeat(Math.max(noCount - 1, 0));
+            document.getElementById('no').innerText = `Are you ${veryText}sure?`;
+        }
+
+        function yesClicked() {
+            // Show the next link
+            document.getElementById('nextLink').style.display = 'block';
+            // Optionally hide the buttons
+            document.getElementById('yes').style.display = 'none';
+            document.getElementById('no').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
